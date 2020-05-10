@@ -1,11 +1,70 @@
-import React, { FC, HTMLAttributes, ReactChild } from 'react';
+import React, { HTMLAttributes } from "react";
 
-export interface Props extends HTMLAttributes<HTMLDivElement> {
-  children?: ReactChild;
+import { useQuery, ReactQueryProviderConfig } from "react-query";
+
+function bytesAsString(bytes: number) {
+  if (bytes > 1_024) {
+    return `${Math.round((bytes / 1_024) * 10) / 10} kB`;
+  }
+
+  return `${bytes} B`;
 }
 
-// Please do not use types off of a default export module or else Storybook Docs will suffer.
-// see: https://github.com/storybookjs/storybook/issues/9556
-export const Thing: FC<Props> = ({ children }) => {
-  return <div>{children || `the snozzberries taste like snozzberries`}</div>;
+const getBundleDetails = async (_: string, packageName: string) => {
+  const response = await fetch(
+    `https://bundlephobia.com/api/size?package=${packageName}`
+  );
+
+  return response.json();
 };
+
+export function useBundlephobia(
+  packageName: string,
+  reactQueryOptions: ReactQueryProviderConfig = {}
+) {
+  return useQuery(["bundlephobia", packageName], getBundleDetails, {
+    staleTime: 15 * 60_000,
+    ...reactQueryOptions
+  });
+}
+
+export interface BundlephobiaProps extends HTMLAttributes<HTMLDivElement> {
+  packageName: string;
+}
+
+export function Bundlephobia({ packageName }: BundlephobiaProps) {
+  const { status, data, error } = useBundlephobia(packageName);
+
+  if (status === "loading") {
+    return (
+      <span>
+        <code>{packageName}</code>
+      </span>
+    );
+  }
+
+  if (status === "error") {
+    return (
+      <span>
+        <code>{packageName}</code> Error: {(error as any).message}
+      </span>
+    );
+  }
+
+  const Wrapper = data.repository
+    ? (wrapperProps: any) => <a {...wrapperProps} />
+    : (wrapperProps: any) => <span {...wrapperProps} />;
+
+  return (
+    <>
+      <code>
+        <Wrapper href={data.repository}>
+          {packageName}
+          {packageName.lastIndexOf("@") <= 0 && <>@{data.version}</>}
+        </Wrapper>
+      </code>
+      &nbsp;-&nbsp;
+      <small>{bytesAsString(data.gzip)} MINIFIED + GZIPPED</small>
+    </>
+  );
+}
