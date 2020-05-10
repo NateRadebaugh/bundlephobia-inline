@@ -1,5 +1,5 @@
 import React from "react";
-import { Bundlephobia, useBundlephobia } from "../src";
+import { Bundlephobia, useBundlephobia } from ".";
 
 export default {
   title: "Bundlephobia"

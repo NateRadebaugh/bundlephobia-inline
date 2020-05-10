@@ -1,0 +1,23 @@
+# Add 'test' label to any change to *.test.* files within the source dir
+test:
+  - src/**/*.test.*
+
+# Add 'storybook' label
+storybook:
+  - .storybook/**/*
+  - src/**/*.stories.*
+
+# Add 'docs' label
+docs:
+  - .storybook/**/*
+  - ./**/*.md
+  - ./**/*.mdx
+
+# Add 'config' label
+config:
+  - ./**/!(*.md|*.mdx)
+
+# Add 'styles' label
+styles:
+  - ./**/*.css
+  - ./**/*.scss
