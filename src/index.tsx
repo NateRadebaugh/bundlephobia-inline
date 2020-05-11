@@ -2,21 +2,35 @@ import React, { HTMLAttributes } from "react";
 
 import { useQuery, ReactQueryProviderConfig } from "react-query";
 
-function bytesAsString(bytes: number) {
-  if (bytes > 1_024) {
-    return `${Math.round((bytes / 1_024) * 10) / 10} kB`;
-  }
-
-  return `${bytes} B`;
+//
+// Shamelessly stolen from https://github.com/thelostone-mc/importcost/blob/master/lib/utils.js
+// all hail thelostone-mc 🙏
+//
+function bytesAsString(bytes: number, mantissa = 2) {
+  if (bytes == 0) return 0;
+  const NUMBER_OF_PEAS_IN_A_POD = 1024;
+  const METRIC_LIST = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+  const powerToBeRaisedTo = Math.floor(
+    Math.log(bytes) / Math.log(NUMBER_OF_PEAS_IN_A_POD)
+  );
+  return (
+    parseFloat(
+      (bytes / Math.pow(NUMBER_OF_PEAS_IN_A_POD, powerToBeRaisedTo)).toFixed(
+        mantissa
+      )
+    ) +
+    " " +
+    METRIC_LIST[powerToBeRaisedTo]
+  );
 }
 
-const getBundleDetails = async (_: string, packageName: string) => {
+async function getBundleDetails(_: string, packageName: string) {
   const response = await fetch(
     `https://bundlephobia.com/api/size?package=${packageName}`
   );
 
   return response.json();
-};
+}
 
 export function useBundlephobia(
   packageName: string,
@@ -28,11 +42,12 @@ export function useBundlephobia(
   });
 }
 
-export interface BundlephobiaProps extends HTMLAttributes<HTMLDivElement> {
+export interface BundlephobiaInlineProps
+  extends HTMLAttributes<HTMLDivElement> {
   packageName: string;
 }
 
-export function Bundlephobia({ packageName }: BundlephobiaProps) {
+export function BundlephobiaInline({ packageName }: BundlephobiaInlineProps) {
   const { status, data, error } = useBundlephobia(packageName);
 
   if (status === "loading") {
@@ -59,8 +74,8 @@ export function Bundlephobia({ packageName }: BundlephobiaProps) {
     <>
       <code>
         <Wrapper href={data.repository}>
-          {packageName}
-          {packageName.lastIndexOf("@") <= 0 && <>@{data.version}</>}
+          {data ? data.name : packageName}
+          {data && data.name.lastIndexOf("@") <= 0 && <>@{data.version}</>}
         </Wrapper>
       </code>
       &nbsp;-&nbsp;
@@ -68,3 +83,5 @@ export function Bundlephobia({ packageName }: BundlephobiaProps) {
     </>
   );
 }
+
+export default BundlephobiaInline;
