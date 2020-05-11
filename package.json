@@ -1,6 +1,6 @@
 {
   "name": "bundlephobia-inline",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A lightweight wrapper around react-query and the bundlephobia API",
   "license": "MIT",
   "homepage": "https://github.com/NateRadebaugh/bundlephobia-inline",
