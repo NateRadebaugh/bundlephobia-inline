@@ -8,16 +8,25 @@ export default {
 export function AsHook() {
   // Simple wrapper for react-query + the bundlephobia API
   const response = useBundlephobia("react-query");
+  const { status } = response;
   const data: any = response.data;
 
   return (
     <>
       Can be used with hooks:
-      <h1>{data.name}</h1>
-      <p>
-        <em>{data.repository}</em>
-      </p>
-      <p>{data.description}</p>
+      {status === "loading" ? (
+        "Loading..."
+      ) : status === "error" ? (
+        "Error"
+      ) : (
+        <>
+          <h1>{data.name}</h1>
+          <p>
+            <em>{data.repository}</em>
+          </p>
+          <p>{data.description}</p>
+        </>
+      )}
     </>
   );
 }
