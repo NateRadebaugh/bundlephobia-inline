@@ -8,7 +8,7 @@ export default {
 };
 
 export function AsHook() {
-  const packageName = textKnob("packageName", "react-query");
+  const packageName = textKnob("packageName", "react-query@1.3.0");
 
   // Simple wrapper for react-query + the bundlephobia API
   const response = useBundlephobia(packageName);
@@ -36,7 +36,7 @@ export function AsHook() {
 }
 
 export function AsComponent() {
-  const packageName = textKnob("packageName", "react-query");
+  const packageName = textKnob("packageName", "react-query@1.3.0");
 
   return <BundlephobiaInline packageName={packageName} />;
 }
