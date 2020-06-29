@@ -11015,9 +11015,9 @@ react-popper@^1.3.7:
     warning "^4.0.2"
 
 react-query@^2.0.3:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/react-query/-/react-query-2.4.0.tgz#67c21e489f4c1597573f75cdd61847efcadde550"
-  integrity sha512-62Nt5HCXdh4RIiKILrA1nkqHf6HRcFmy+jVwE7W2Istk16f028zbz4z19hw9lChZk/07cV/5hwMVhPb7ym+HWA==
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/react-query/-/react-query-2.4.4.tgz#31cb61738f2534fe51eb3921afd3a57abefa3f07"
+  integrity sha512-rDGMj4KHFt+D83Aq076rmAZDnfsVcArrOYQusO7EgIbMa9ioeppJ/fdSGiGH+tfShB4o+8xpKBxpHFjuLnitQw==
   dependencies:
     "@scarf/scarf" "^1.0.6"
     ts-toolbelt "^6.9.4"
