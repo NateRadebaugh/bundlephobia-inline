@@ -1665,11 +1665,6 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@scarf/scarf@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@scarf/scarf/-/scarf-1.0.6.tgz#52011dfb19187b53b75b7b6eac20da0810ddd88f"
-  integrity sha512-y4+DuXrAd1W5UIY3zTcsosi/1GyYT8k5jGnZ/wG7UUHVrU+MHlH4Mp87KK2/lvMW4+H7HVcdB+aJhqywgXksjA==
-
 "@sinonjs/commons@^1.7.0":
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.7.2.tgz#505f55c74e0272b43f6c52d81946bed7058fc0e2"
@@ -11015,11 +11010,10 @@ react-popper@^1.3.7:
     warning "^4.0.2"
 
 react-query@^2.0.3:
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/react-query/-/react-query-2.4.5.tgz#3f72f8695430c5c4d9dd4a84fe2e6fa4a3e68445"
-  integrity sha512-q1OLp+FcME56m7o/ZPjbdx3VRucWOAM+S6oJRQEoxTRckUoZTcW+Ep1xpWUKes57CNea2Je5xYSc9nEg5VxAmw==
+  version "2.4.7"
+  resolved "https://registry.yarnpkg.com/react-query/-/react-query-2.4.7.tgz#c70cb778d561569b5a810ababa827708107bce44"
+  integrity sha512-xEKXfGV7uFwqoMf8b/wixTnG8nicdWBwOOPmDJVeNwecTz1xBgxMa4sf+3fWL2Wc48rjzTla9bixB/wM7K9dTQ==
   dependencies:
-    "@scarf/scarf" "^1.0.6"
     ts-toolbelt "^6.9.4"
 
 react-select@^3.0.8:
