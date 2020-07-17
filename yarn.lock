@@ -11009,9 +11009,9 @@ react-popper@^1.3.7:
     warning "^4.0.2"
 
 react-query@^2.0.3:
-  version "2.4.19"
-  resolved "https://registry.yarnpkg.com/react-query/-/react-query-2.4.19.tgz#a8d1602f10992cfe6c034f4bb03c2bf240b81e11"
-  integrity sha512-WGzMg1JW/Qy/4Uu773laaaRyVb5abhn0xDmFyNDtx5MpDPn0Y+szGPVJZMKk3vU6SzpxtM6UhcDcwus8w+A/IQ==
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/react-query/-/react-query-2.5.1.tgz#f4ec966567346b35d5a1681a1ae142162f4bb017"
+  integrity sha512-VziTyEGU1oHNHU7/uTBpX+dOt05+WEubrkl7paWSxxyAcHvLrNmtl88b0hXc76Rjk2XAxcoqtZ+EczYT6GNIAA==
   dependencies:
     ts-toolbelt "^6.9.4"
 
