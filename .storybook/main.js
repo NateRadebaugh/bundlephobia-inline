@@ -1,29 +1,10 @@
 module.exports = {
-  stories: ["../src/**/*.stories.(ts|tsx)"],
+  stories: ["../src/**/*.stories.@(js|jsx|ts|tsx|mdx)"],
   addons: [
+    "@storybook/preset-scss",
     "@storybook/addon-knobs",
     "@storybook/addon-actions",
     "@storybook/addon-links",
     "@storybook/addon-docs"
-  ],
-  webpackFinal: async config => {
-    config.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      use: [
-        {
-          loader: require.resolve("ts-loader"),
-          options: {
-            transpileOnly: true
-          }
-        },
-        {
-          loader: require.resolve("react-docgen-typescript-loader")
-        }
-      ]
-    });
-
-    config.resolve.extensions.push(".ts", ".tsx");
-
-    return config;
-  }
+  ]
 };
