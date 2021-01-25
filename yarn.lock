@@ -1813,16 +1813,16 @@
     type-detect "4.0.8"
 
 "@storybook/addon-actions@^6.0.5":
-  version "6.1.12"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.1.12.tgz#35abd8a34d95e2c7bf228de9d22426b6d56cce57"
-  integrity sha512-kVLFbnaa7/tBAWLKE44CPqjdVrm2hHBDdbBf/ycKwbKgfdS3KkieFfBNxPOdLm3c7Qur8Ze74y3v9qrdm6EMOA==
+  version "6.1.15"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.1.15.tgz#07f6770e419da2ca5398a346d150141951a744e8"
+  integrity sha512-Mw0wlF3a2OHmI/HyHTbLxRWKCrdRIkKcLHTLptMi/9sOHcPRniwB2jTD1hdzwZrQCPbvvAkYBntVYH0XkNkGEA==
   dependencies:
-    "@storybook/addons" "6.1.12"
-    "@storybook/api" "6.1.12"
-    "@storybook/client-api" "6.1.12"
-    "@storybook/components" "6.1.12"
-    "@storybook/core-events" "6.1.12"
-    "@storybook/theming" "6.1.12"
+    "@storybook/addons" "6.1.15"
+    "@storybook/api" "6.1.15"
+    "@storybook/client-api" "6.1.15"
+    "@storybook/components" "6.1.15"
+    "@storybook/core-events" "6.1.15"
+    "@storybook/theming" "6.1.15"
     core-js "^3.0.1"
     fast-deep-equal "^3.1.1"
     global "^4.3.2"
